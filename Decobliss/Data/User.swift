@@ -20,6 +20,8 @@ struct User: Identifiable, Codable, Hashable {
     var chats: [UUID : Chat] = [:]
     
     var points: Int = 100
+    
+    var isSeller: Bool = false
 }
 
 extension User {

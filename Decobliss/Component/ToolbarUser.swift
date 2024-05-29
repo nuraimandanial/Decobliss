@@ -20,9 +20,9 @@ struct ToolbarUser: ToolbarContent {
                     .frame(width: 60)
                     .clipShape(Circle())
             }
-            HStack {
-                Text("Hi ")
-                    .font(.title2)
+            HStack(spacing: 10) {
+                Text("Hi")
+                    .font(.title3)
                 Text("@\(name)")
                     .font(.headline)
                     .bold()

@@ -12,14 +12,14 @@ class AuthManager: ObservableObject {
     var auth = Auth.auth()
     private var firebaseService = FirebaseService()
     
-    func signUp(email: String, password: String, completion: @escaping (Error?) -> Void) {
+    func signUp(email: String, password: String, username: String, phone: String, completion: @escaping (Error?) -> Void) {
         auth.createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(error)
             } else if let authResult = authResult {
                 let uid = authResult.user.uid
                 
-                let profile = Profile(id: UUID(uuidString: uid) ?? UUID(), email: email, password: password.count)
+                let profile = Profile(id: UUID(uuidString: uid) ?? UUID(), username: username, email: email, password: password.count, details: Details(phone: phone))
                 let user = User(authId: uid, profile: profile)
                 
                 guard let userData = try? JSONEncoder().encode(user), let jsonObject = try? JSONSerialization.jsonObject(with: userData), let jsonDict = jsonObject as? [String: Any] else {
@@ -45,6 +45,12 @@ class AuthManager: ObservableObject {
                     completion(result)
                 }
             }
+        }
+    }
+    
+    func resetPassword(with email: String, completion: @escaping (Error?) -> Void) {
+        auth.sendPasswordReset(withEmail: email) { error in
+            completion(error)
         }
     }
     

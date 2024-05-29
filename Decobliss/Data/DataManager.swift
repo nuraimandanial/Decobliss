@@ -18,13 +18,12 @@ class DataManager: ObservableObject {
         }
     }
     
-    @Published var categories: [Category] = Category.allCategory
-    
     private let userDefaults = UserDefaults.standard
     private let currentUserKey = "currentUserKey"
     
     init() {
         loadCurrentUser()
+        fetchProducts()
     }
     
     public func saveCurrentUser() {
@@ -119,5 +118,85 @@ class DataManager: ObservableObject {
         let distance = seller.distance(to: buyer) / 1000
         
         return baseFee * Float(distance)
+    }
+    
+    @Published var products: [UUID: Product] = [:]
+    @Published var categories: [Category] = Category.allCategory
+    
+    func fetchProducts() {
+        firebaseService.fetchProducts { result in
+            switch result {
+            case .success(let products):
+                for product in products {
+                    self.products[product.id] = product
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func addProduct(_ product: Product, imageDatas: [Data], completion: @escaping (Error?) -> Void) {
+        let group = DispatchGroup()
+        var urls = [String]()
+        
+        for data in imageDatas {
+            group.enter()
+            firebaseService.uploadImage(sellerId: currentUser.authId, productName: product.name, imageData: data) { result in
+                defer { group.leave() }
+                switch result {
+                case .success(let url):
+                    urls.append(url)
+                case .failure(let error):
+                    completion(error)
+                }
+            }
+        }
+        
+        var product = product
+        group.notify(queue: .main) { [self] in
+            product.images = urls
+            product.seller = currentUser.authId
+            
+            products[product.id] = product
+            firebaseService.saveProduct(product, completion: completion)
+        }
+    }
+    
+    func removeProduct(productId: UUID) {
+        products.removeValue(forKey: productId)
+    }
+    
+    func allProducts() -> [Product] {
+        return Array(products.values)
+    }
+    
+    func productsForSeller(sellerId: String) -> [Product] {
+        return products.values.filter { $0.seller == sellerId }
+    }
+    
+    @Published var orders: [Order] = []
+    
+    func saveOrder(_ order: Order, completion: @escaping (Error?) -> Void) {
+        firebaseService.saveOrder(order) { error in
+            if let error = error {
+                completion(error)
+            } else {
+                self.orders.append(order)
+            }
+        }
+    }
+    
+    func fetchOrders(forSeller sellerId: String, completion: @escaping ([Order]) -> Void) {
+        firebaseService.fetchOrders(forSeller: sellerId) { result in
+            switch result {
+            case .success(let orders):
+                self.orders = orders
+                completion(orders)
+            case .failure(let error):
+                print(error.localizedDescription)
+                completion([])
+            }
+        }
     }
 }

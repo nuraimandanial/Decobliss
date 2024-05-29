@@ -46,7 +46,7 @@ struct AddAddress: View {
                             }))
                         }
                     }
-                    .padding([.horizontal, .top])
+                    .padding()
                 }
                 .padding(.top)
             }

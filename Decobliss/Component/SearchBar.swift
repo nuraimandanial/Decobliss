@@ -34,7 +34,7 @@ struct SearchBar: View {
                     Image(systemName: "bubble.left.and.text.bubble.right")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 40)
+                        .frame(width: 35)
                         .foregroundStyle(.yellows)
                 })
             }

@@ -6,11 +6,39 @@
 //   
 
 import SwiftUI
+import ARKit
+import RealityKit
 
 struct DisplayAR: View {
+    var name: String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ZStack {
+                Color.whitey.ignoresSafeArea()
+                
+                VStack {
+                    ARContainer().edgesIgnoringSafeArea([.horizontal, .bottom])
+                }
+                .padding(.top)
+            }
+            .navigationBarBackButtonHidden()
+            .toolbar {
+                Toolbar(title: name)
+            }
+        }
+        .environment(\.colorScheme, .light)
     }
+}
+
+struct ARContainer: UIViewRepresentable {
+    func makeUIView(context: Context) -> ARView {
+        let arView = ARView(frame: .zero)
+        
+        return arView
+    }
+    
+    func updateUIView(_ uiView: ARView, context: Context) {}
 }
 
 #Preview {

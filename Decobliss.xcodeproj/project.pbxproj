@@ -67,6 +67,20 @@
 		FA364C5F2C04D1B8007E50D4 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C5E2C04D1B8007E50D4 /* InboxView.swift */; };
 		FA364C612C04D1C4007E50D4 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C602C04D1C4007E50D4 /* ChatView.swift */; };
 		FA364C632C04D1D1007E50D4 /* ProductDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C622C04D1D1007E50D4 /* ProductDetail.swift */; };
+		FA364C672C04F653007E50D4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C662C04F653007E50D4 /* LoginView.swift */; };
+		FA364C6A2C04F666007E50D4 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C692C04F666007E50D4 /* RegisterView.swift */; };
+		FA364C6C2C04F674007E50D4 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C6B2C04F674007E50D4 /* ForgotPassword.swift */; };
+		FA364C6E2C04F67D007E50D4 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C6D2C04F67D007E50D4 /* SplashScreen.swift */; };
+		FA364C702C04F692007E50D4 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C6F2C04F691007E50D4 /* OnboardingScreen.swift */; };
+		FA364C722C051AAF007E50D4 /* AdminHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C712C051AAF007E50D4 /* AdminHome.swift */; };
+		FA364C752C051ACD007E50D4 /* AddProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C742C051ACD007E50D4 /* AddProduct.swift */; };
+		FA364C772C051AD9007E50D4 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C762C051AD9007E50D4 /* ProductList.swift */; };
+		FA364C792C051AE4007E50D4 /* EditProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C782C051AE4007E50D4 /* EditProduct.swift */; };
+		FA364C7B2C051AF1007E50D4 /* OrderHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C7A2C051AF1007E50D4 /* OrderHistory.swift */; };
+		FA364C7D2C052FD0007E50D4 /* CategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C7C2C052FD0007E50D4 /* CategoryPicker.swift */; };
+		FA364C7F2C053FC8007E50D4 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C7E2C053FC8007E50D4 /* OrderDetails.swift */; };
+		FA364C822C0541F3007E50D4 /* DisplayAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C812C0541F3007E50D4 /* DisplayAR.swift */; };
+		FA364C852C05E67F007E50D4 /* RightRoundedRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA364C842C05E67F007E50D4 /* RightRoundedRectangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +135,21 @@
 		FA364C5E2C04D1B8007E50D4 /* InboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxView.swift; sourceTree = "<group>"; };
 		FA364C602C04D1C4007E50D4 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		FA364C622C04D1D1007E50D4 /* ProductDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetail.swift; sourceTree = "<group>"; };
+		FA364C662C04F653007E50D4 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FA364C692C04F666007E50D4 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		FA364C6B2C04F674007E50D4 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		FA364C6D2C04F67D007E50D4 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		FA364C6F2C04F691007E50D4 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		FA364C712C051AAF007E50D4 /* AdminHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminHome.swift; sourceTree = "<group>"; };
+		FA364C742C051ACD007E50D4 /* AddProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProduct.swift; sourceTree = "<group>"; };
+		FA364C762C051AD9007E50D4 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		FA364C782C051AE4007E50D4 /* EditProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProduct.swift; sourceTree = "<group>"; };
+		FA364C7A2C051AF1007E50D4 /* OrderHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistory.swift; sourceTree = "<group>"; };
+		FA364C7C2C052FD0007E50D4 /* CategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPicker.swift; sourceTree = "<group>"; };
+		FA364C7E2C053FC8007E50D4 /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
+		FA364C812C0541F3007E50D4 /* DisplayAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayAR.swift; sourceTree = "<group>"; };
+		FA364C832C05425C007E50D4 /* gamingChairAR.reality */ = {isa = PBXFileReference; lastKnownFileType = file; path = gamingChairAR.reality; sourceTree = "<group>"; };
+		FA364C842C05E67F007E50D4 /* RightRoundedRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightRoundedRectangle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +197,8 @@
 				FA364BDC2C037F10007E50D4 /* ContentView.swift */,
 				FA364C1F2C03A691007E50D4 /* UserTabView.swift */,
 				FA364C212C03A6EF007E50D4 /* AdminTabView.swift */,
+				FA364C732C051AB5007E50D4 /* Admin */,
+				FA364C682C04F658007E50D4 /* Main */,
 				FA364C5B2C04D19B007E50D4 /* Home */,
 				FA364C522C03CBFB007E50D4 /* Cart */,
 				FA364C4F2C03C47E007E50D4 /* Reward */,
@@ -222,6 +253,7 @@
 				FA364C272C03A84B007E50D4 /* TextBox.swift */,
 				FA364C312C03A866007E50D4 /* Toolbar.swift */,
 				FA364C332C03A9ED007E50D4 /* ToolbarUser.swift */,
+				FA364C842C05E67F007E50D4 /* RightRoundedRectangle.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -277,8 +309,44 @@
 				FA364C622C04D1D1007E50D4 /* ProductDetail.swift */,
 				FA364C5E2C04D1B8007E50D4 /* InboxView.swift */,
 				FA364C602C04D1C4007E50D4 /* ChatView.swift */,
+				FA364C802C0541DF007E50D4 /* AR */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FA364C682C04F658007E50D4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FA364C662C04F653007E50D4 /* LoginView.swift */,
+				FA364C692C04F666007E50D4 /* RegisterView.swift */,
+				FA364C6B2C04F674007E50D4 /* ForgotPassword.swift */,
+				FA364C6D2C04F67D007E50D4 /* SplashScreen.swift */,
+				FA364C6F2C04F691007E50D4 /* OnboardingScreen.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		FA364C732C051AB5007E50D4 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				FA364C712C051AAF007E50D4 /* AdminHome.swift */,
+				FA364C742C051ACD007E50D4 /* AddProduct.swift */,
+				FA364C7C2C052FD0007E50D4 /* CategoryPicker.swift */,
+				FA364C762C051AD9007E50D4 /* ProductList.swift */,
+				FA364C782C051AE4007E50D4 /* EditProduct.swift */,
+				FA364C7A2C051AF1007E50D4 /* OrderHistory.swift */,
+				FA364C7E2C053FC8007E50D4 /* OrderDetails.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		FA364C802C0541DF007E50D4 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				FA364C812C0541F3007E50D4 /* DisplayAR.swift */,
+				FA364C832C05425C007E50D4 /* gamingChairAR.reality */,
+			);
+			path = AR;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,9 +442,12 @@
 				FA364C2F2C03A84B007E50D4 /* StarRating.swift in Sources */,
 				FA364C362C03AABA007E50D4 /* AccountView.swift in Sources */,
 				FA364C412C03ABE5007E50D4 /* UserProfile.swift in Sources */,
+				FA364C852C05E67F007E50D4 /* RightRoundedRectangle.swift in Sources */,
 				FA364C632C04D1D1007E50D4 /* ProductDetail.swift in Sources */,
 				FA364C002C03823C007E50D4 /* Chat.swift in Sources */,
+				FA364C6E2C04F67D007E50D4 /* SplashScreen.swift in Sources */,
 				FA364C5F2C04D1B8007E50D4 /* InboxView.swift in Sources */,
+				FA364C6A2C04F666007E50D4 /* RegisterView.swift in Sources */,
 				FA364C302C03A84B007E50D4 /* iOSCheckbox.swift in Sources */,
 				FA364C042C03863E007E50D4 /* Payment.swift in Sources */,
 				FA364BF42C038104007E50D4 /* DataManager.swift in Sources */,
@@ -394,26 +465,37 @@
 				FA364C1D2C03A3DF007E50D4 /* ButtonLabel.swift in Sources */,
 				FA364C5D2C04D1A9007E50D4 /* ExploreView.swift in Sources */,
 				FA364C562C03CC1E007E50D4 /* SelectAddress.swift in Sources */,
+				FA364C752C051ACD007E50D4 /* AddProduct.swift in Sources */,
 				FA364BF02C0380EE007E50D4 /* AuthManager.swift in Sources */,
+				FA364C822C0541F3007E50D4 /* DisplayAR.swift in Sources */,
 				FA364BED2C0380C9007E50D4 /* AppModel.swift in Sources */,
 				FA364C542C03CC11007E50D4 /* CheckoutView.swift in Sources */,
+				FA364C672C04F653007E50D4 /* LoginView.swift in Sources */,
 				FA364C342C03A9ED007E50D4 /* ToolbarUser.swift in Sources */,
+				FA364C792C051AE4007E50D4 /* EditProduct.swift in Sources */,
+				FA364C722C051AAF007E50D4 /* AdminHome.swift in Sources */,
 				FA364BDB2C037F10007E50D4 /* DecoblissApp.swift in Sources */,
 				FA364BFC2C03819B007E50D4 /* Cart.swift in Sources */,
 				FA364C062C038930007E50D4 /* Shipping.swift in Sources */,
 				FA364C4E2C03C477007E50D4 /* RewardView.swift in Sources */,
 				FA364C4C2C03AF3B007E50D4 /* ReviewsView.swift in Sources */,
+				FA364C772C051AD9007E50D4 /* ProductList.swift in Sources */,
 				FA364C3B2C03AADA007E50D4 /* ChangePassword.swift in Sources */,
 				FA364C4A2C03AEE6007E50D4 /* ReturnsView.swift in Sources */,
 				FA364C392C03AAD0007E50D4 /* AddAddress.swift in Sources */,
 				FA364C3F2C03AAF7007E50D4 /* ProfileView.swift in Sources */,
+				FA364C7D2C052FD0007E50D4 /* CategoryPicker.swift in Sources */,
 				FA364C3D2C03AAEA007E50D4 /* DeliveryAddress.swift in Sources */,
 				FA364BF82C038182007E50D4 /* Seller.swift in Sources */,
 				FA364C2B2C03A84B007E50D4 /* SearchBar.swift in Sources */,
 				FA364C222C03A6EF007E50D4 /* AdminTabView.swift in Sources */,
 				FA364BF62C03817B007E50D4 /* User.swift in Sources */,
+				FA364C702C04F692007E50D4 /* OnboardingScreen.swift in Sources */,
+				FA364C7B2C051AF1007E50D4 /* OrderHistory.swift in Sources */,
 				FA364C2D2C03A84B007E50D4 /* SelectionButton.swift in Sources */,
 				FA364C2C2C03A84B007E50D4 /* Placeholder.swift in Sources */,
+				FA364C6C2C04F674007E50D4 /* ForgotPassword.swift in Sources */,
+				FA364C7F2C053FC8007E50D4 /* OrderDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

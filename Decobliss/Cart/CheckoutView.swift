@@ -12,7 +12,7 @@ struct CheckoutView: View {
     @Environment(\.dismiss) var dismiss
     
     let shippingOption = Shipping.options
-    @State var selectShipping: ShippingType = .selfPickup
+    @State var selectedShipping: ShippingType = .selfPickup
     @State var shippingIndex: Int?
     
     @State var selectedAddress: Address = .init()
@@ -22,11 +22,9 @@ struct CheckoutView: View {
     @State var paymentIndex: Int = 0
     
     var shippingFee: Float {
-        if selectShipping == .doorStep {
-            return 15
-        } else {
-            return 0
-        }
+        let sellerCount = appModel.dataManager.currentUser.carts.uniqueSellers.count
+        let baseShipping: Float = 15
+        return selectedShipping == .doorStep ? baseShipping * Float(sellerCount) : 0
     }
     
     var subTotal: Float {
@@ -36,6 +34,8 @@ struct CheckoutView: View {
     var total: Float {
         shippingFee + subTotal
     }
+    
+    @State var completePayment: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -65,12 +65,12 @@ struct CheckoutView: View {
                                             SelectionButton(selection: Binding(get: {shippingIndex == index}, set: { selected in
                                                 if selected {
                                                     shippingIndex = index
-                                                    selectShipping = option.type
+                                                    selectedShipping = option.type
                                                 }
                                             }))
                                             Text(option.name)
                                             Spacer()
-                                            if option.type == .doorStep && selectShipping == .doorStep {
+                                            if option.type == .doorStep && selectedShipping == .doorStep {
                                                 NavigationLink(destination: {
                                                     SelectAddress(selectedAddress: Binding(get: {selectedAddress}, set: { address in
                                                         selectedAddress = address
@@ -143,15 +143,16 @@ struct CheckoutView: View {
                                 Text("RM \(total, specifier: "%.2f")")
                                     .bold()
                             }
-                            NavigationLink(destination: {
-                                PaymentDone()
-                                    .environmentObject(appModel)
-                            }, label: {
-                                ButtonLabel(text: "Pay Now")
-                                    .padding(.horizontal, 40)
-                            })
                         }
                         .padding()
+                        
+                        Button(action: {
+                            saveOrder()
+                        }, label: {
+                            ButtonLabel(text: "Pay Now")
+                                .padding(.horizontal, 40)
+                        })
+                        NavigationLink(destination: PaymentDone().environmentObject(appModel), isActive: $completePayment, label: { EmptyView() })
                     }
                 }
                 .padding(.top)
@@ -159,6 +160,33 @@ struct CheckoutView: View {
             .navigationBarBackButtonHidden()
             .toolbar {
                 Toolbar(title: "Checkout")
+            }
+        }
+    }
+    
+    func saveOrder() {
+        let groupedCarts = Dictionary(grouping: appModel.dataManager.currentUser.carts, by: { $0.product.seller ?? "" })
+        let count = groupedCarts.count
+        let shipping = shippingFee / Float(count)
+        
+        for (sellerId, carts) in groupedCarts {
+            let order = Order(
+                name: appModel.dataManager.currentUser.profile.details.firstName,
+                userId: appModel.dataManager.currentUser.authId,
+                carts: carts,
+                deliveryAddress: selectedAddress,
+                shippingType: selectedShipping,
+                shippingTotal: shipping,
+                payment: selectedPayment,
+                sellerId: sellerId
+            )
+            
+            appModel.dataManager.saveOrder(order) { error in
+                if let error = error {
+                    print("Error Saving Order: \(error.localizedDescription)")
+                } else {
+                    completePayment = true
+                }
             }
         }
     }

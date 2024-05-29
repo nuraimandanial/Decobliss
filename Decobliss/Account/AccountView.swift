@@ -16,7 +16,8 @@ struct AccountView: View {
                 ProfileView()
                     .environmentObject(appModel)
             } else {
-                
+                LoginView()
+                    .environmentObject(appModel)
             }
         }
     }

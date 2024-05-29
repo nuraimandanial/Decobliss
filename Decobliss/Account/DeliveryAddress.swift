@@ -13,6 +13,7 @@ struct DeliveryAddress: View {
     
     @State var addresses: [Address] = []
     
+    @State var alert: Bool = false
     @State var delete: Bool = false
     
     var body: some View {
@@ -25,7 +26,7 @@ struct DeliveryAddress: View {
                     
                     VStack {
                         ScrollView {
-                            ForEach(addresses) { address in
+                            ForEach(appModel.dataManager.currentUser.address) { address in
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 10)
                                         .foregroundStyle(.white)
@@ -62,11 +63,16 @@ struct DeliveryAddress: View {
                                             })
                                             Spacer()
                                             Button(action: {
-                                                
+                                                alert = true
                                             }, label: {
                                                 Image(systemName: "trash")
                                                     .foregroundStyle(.red)
                                             })
+                                            .alert(isPresented: $alert) {
+                                                Alert(title: Text("Are you sure?"), message: Text("Confirm to delete this address."), primaryButton: .cancel(), secondaryButton: .destructive(Text("Delete"), action: {
+                                                    appModel.dataManager.deleteAddress(of: address)
+                                                }))
+                                            }
                                             .alert(isPresented: $delete) {
                                                 Alert(title: Text("Success"), message: Text("Address deleted from user data."), dismissButton: .default(Text("OK")))
                                             }
@@ -87,7 +93,7 @@ struct DeliveryAddress: View {
                                 .padding(.horizontal, 40)
                         })
                     }
-                    .padding([.horizontal, .top])
+                    .padding()
                 }
                 .padding(.top)
             }

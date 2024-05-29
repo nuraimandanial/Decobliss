@@ -11,11 +11,9 @@ struct AdminTabView: View {
     @EnvironmentObject var appModel: AppModel
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                
-            }
-        }
+        AdminHome()
+            .environmentObject(appModel)
+            .environment(\.colorScheme, .light)
     }
 }
 

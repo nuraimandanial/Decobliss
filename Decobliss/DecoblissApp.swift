@@ -11,9 +11,9 @@ import Firebase
 @main
 struct DecoblissApp: App {
     @StateObject var appModel = AppModel()
-    @AppStorage("isFirstTime") var isFirstTime: Bool = false
+    @AppStorage("isFirstTime") var isFirstTime: Bool = true
     
-    @State var splash: Bool = false
+    @State var splash: Bool = true
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor.init(Color.white)
@@ -27,12 +27,28 @@ struct DecoblissApp: App {
             ZStack {
                 if splash {
                     if isFirstTime {
-                        
+                        OnboardingScreen(dismiss: $splash)
+                            .onDisappear {
+                                isFirstTime = false
+                            }
                     } else {
-                        
+                        SplashScreen()
+                            .onAppear {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                                    withAnimation {
+                                        splash = false
+                                    }
+                                })
+                            }
                     }
                 } else {
-                    
+                    if appModel.dataManager.currentUser.isSeller {
+                        AdminTabView()
+                            .environmentObject(appModel)
+                    } else {
+                        UserTabView()
+                            .environmentObject(appModel)
+                    }
                 }
             }
         }

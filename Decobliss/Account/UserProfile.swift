@@ -12,7 +12,10 @@ struct UserProfile: View {
     @Environment(\.dismiss) var dismiss
     
     @State var profile: Profile = .init()
+    
     @State var success: Bool = false
+    @State var alert: Bool = false
+    @State var alertMessage: String = ""
     
     var body: some View {
         NavigationStack {
@@ -33,20 +36,16 @@ struct UserProfile: View {
                         Spacer()
                         
                         Button(action: {
-                            appModel.dataManager.updateProfile(with: profile) { error in
-                                if let error = error {
-                                    success = false
-                                } else {
-                                    success = true
-                                }
-                            }
+                            updateProfile()
                         }, label: {
                             ButtonLabel(text: "Update Profile")
                                 .padding(.horizontal, 40)
                         })
                         .alert(isPresented: $success) {
-                            Alert(title: Text("Success!"), message: Text("Profile Updated"), dismissButton: .default(Text("OK"), action: {
-                                dismiss()
+                            Alert(title: Text(success ? "Success!" : "Error"), message: Text(alertMessage), dismissButton: .default(Text("OK"), action: {
+                                if success {
+                                    dismiss()
+                                }
                             }))
                         }
                     }
@@ -61,6 +60,18 @@ struct UserProfile: View {
             .toolbar {
                 Toolbar(title: "My Profile")
             }
+        }
+    }
+    
+    func updateProfile() {
+        appModel.dataManager.updateProfile(with: profile) { error in
+            if let error = error {
+                alertMessage = "Error Updating Profile: \(error.localizedDescription)"
+            } else {
+                success = true
+                alertMessage = "Profile information updated."
+            }
+            alert = true
         }
     }
 }

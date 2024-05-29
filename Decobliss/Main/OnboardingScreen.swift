@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct OnboardingScreen: View {
+    @Binding var dismiss: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.yellows.ignoresSafeArea()
+            
+            VStack {
+                Image("logo")
+                    .resizable().scaledToFit()
+                Button(action: {
+                    dismiss = false
+                }, label: {
+                    ButtonLabel(text: "Get Started", color: .white)
+                        .padding(.horizontal, 40)
+                })
+            }
+        }
     }
 }
 
 #Preview {
-    OnboardingScreen()
+    OnboardingScreen(dismiss: .constant(false))
 }

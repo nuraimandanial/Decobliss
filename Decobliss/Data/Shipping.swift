@@ -23,4 +23,13 @@ extension Shipping {
 
 enum ShippingType: Codable, Hashable {
     case selfPickup, doorStep
+    
+    func rawValue() -> String {
+        switch self {
+        case .selfPickup:
+            "Self-Pickup"
+        case .doorStep:
+            "Door-Step Delivery"
+        }
+    }
 }

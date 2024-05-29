@@ -14,4 +14,6 @@ struct Seller: Identifiable, Codable, Hashable {
     
     var profile = Profile()
     var address: Address = Address()
+    var products: [UUID] = []
+    var orders: [Order] = []
 }

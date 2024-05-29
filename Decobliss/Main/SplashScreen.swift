@@ -9,7 +9,12 @@ import SwiftUI
 
 struct SplashScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.yellows.ignoresSafeArea()
+            Image("logo")
+                .resizable().scaledToFit()
+                .frame(width: 300)
+        }
     }
 }
 
